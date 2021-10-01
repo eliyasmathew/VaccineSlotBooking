@@ -1,0 +1,26 @@
+<div class="card" style="width: 30rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ data.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ data.district_name }}</h6>
+    <p class="card-text">
+      Vaccine : {{ data.vaccine }} <br />
+      Available Dose : {{ data.available_capacity }}<br />
+      Slots Available From : {{ data.from }} to {{ data.to }} <br />
+      Fees : ₹ {{ data.fee }}
+    </p>
+    <a
+      href="https://selfregistration.sandbox.cowin.gov.in/"
+      target="_blank"
+      class="card-link"
+      >Click to Book your Slot</a
+    >
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm">One of three columns</div>
+    <div class="col-sm">One of three columns</div>
+    <div class="col-sm">One of three columns</div>
+  </div>
+</div> -->

@@ -1,0 +1,91 @@
+<div class="sectionOne">
+  <!-- nav -->
+  <nav class="nav nav-pills nav-fill" style="background-color: floralwhite">
+    <a class="nav-link" aria-current="page" href="#"
+      ><strong> Active</strong></a
+    >
+    <a class="nav-link" href="#"><strong> Much longer nav link</strong></a>
+    <a class="nav-link" href="#"><strong>Link</strong></a>
+    <a class="nav-link disabled"><strong> Disabled </strong></a>
+  </nav>
+  <!-- nav -->
+  <h1><u> Check your Slots For Vaccination</u></h1>
+  <p class="text">Enter Your PinCode :</p>
+  <input
+    class="pinCode"
+    [(ngModel)]="textBoxValue"
+    placeholder="Enter PinCode "
+  />
+  <br />
+  <br />
+  <p class="text">Enter the Date :</p>
+  <input class="date" type="date" [(ngModel)]="dateValue" />
+  <br />
+  <app-button
+    class="button"
+    type="submit"
+    (btnClick)="btnSubmit()"
+  ></app-button>
+  <!-- state card -->
+  <div class="stateCard" style="width: 20rem">
+    <div *ngIf="hospData">
+      <div class="card">
+        <h5 class="card-header">{{ hospData.sessions[0].state_name }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ hospData.sessions[0].district_name }}</h5>
+          <p class="card-text" style="color: black">
+            Wear mask and maintain social distancing even after getting
+            vaccinated.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- state card -->
+</div>
+
+<div *ngIf="hospData">
+  <h1 id="details">Details</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" *ngFor="let data of hospData.sessions">
+        <app-name-card
+          [data]="{
+            address: data.address,
+            name: data.name,
+            district_name: data.district_name,
+            fee: data.fee,
+            from: data.from,
+            to: data.to,
+            available_capacity: data.available_capacity,
+            slots: data.slots,
+            vaccine: data.vaccine
+          }"
+        ></app-name-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- address: "Near Model Engineering College Road Thrikkakara Edappally Ernakulam"
+allow_all_age: true
+available_capacity: 279
+available_capacity_dose1: 100
+available_capacity_dose2: 179
+block_name: "Cheranalloor PHC"
+center_id: 579701
+date: "01-10-2021"
+district_name: "Ernakulam"
+fee: "780"
+fee_type: "Paid"
+from: "09:00:00"
+lat: 10
+long: 76
+min_age_limit: 18
+name: "B And B Memorial Hospital"
+pincode: 682021
+session_id: "da0d1e41-5a10-4547-b879-f500d9807a10"
+slots: (4) ['09:00AM-11:00AM', '11:00AM-01:00PM', '01:00PM-03:00PM', '03:00PM-05:00PM']
+state_name: "Kerala"
+to: "17:00:00"
+vaccine: "COVISHIELD" -->
